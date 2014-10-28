@@ -27,6 +27,7 @@ public class ReverseInteger {
         try {
             return Integer.parseInt(sb.toString());
         } catch (NumberFormatException e) {
+            //overflow检查
             return 0;
         }
     }
