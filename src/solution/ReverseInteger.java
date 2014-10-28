@@ -17,7 +17,7 @@ public class ReverseInteger {
 
         x = Math.abs(x);
 
-        //²ÉÓÃÈ¡ÓàÊıµÄ·½·¨
+        //é‡‡ç”¨å–ä½™æ•°æ–¹æ³•
         while (x > 0) {
             int i = x % 10;
             sb.append(i);
