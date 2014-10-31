@@ -9,26 +9,42 @@ package solution;
 public class ReverseInteger {
     public int reverse(int x) {
 
-        StringBuilder sb = new StringBuilder();
+        int reverse = 0;
+        boolean neg = false;
+        int min,multiMin;
 
         if (x < 0) {
-            sb.append("-");
+            neg = true;
+            min = Integer.MIN_VALUE;
+        } else {
+            min = -1 * Integer.MAX_VALUE;
         }
+        
+        multiMin = min/10;
 
         x = Math.abs(x);
 
         //采用取余数方法
         while (x > 0) {
-            int i = x % 10;
-            sb.append(i);
+            if (reverse < multiMin) {
+                return 0;
+            } 
+
+            reverse *= 10;
+            
+            if (reverse + x%10 < min) {
+                return 0;
+            }
+            
+            reverse = reverse - x % 10;
+
             x = x/10;
         }
         
-        try {
-            return Integer.parseInt(sb.toString());
-        } catch (NumberFormatException e) {
-            //overflow检查
-            return 0;
+        if (neg) {
+            return reverse;
+        } else {
+            return -1 * reverse;
         }
     }
 }
